@@ -1,0 +1,47 @@
+﻿@using System.Threading
+@using System.Web.Optimization
+@using Abp.Configuration
+@using Abp.Timing
+@using Abp.Web.Mvc.Extensions
+@using Sgrc
+@using Sgrc.Configuration
+@{
+    Layout = null;
+    SetAntiForgeryCookie();
+    var uiTheme = SettingManager.GetSettingValue(AppSettingNames.UiTheme);
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Portal| //SGRC</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Learner Office Administation Management Software" name="description" />
+    <meta content="" name="//sgrc" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+
+
+
+    <link rel="shortcut icon" href="~/favicon.ico">
+
+   
+
+   
+    @Styles.Render("~/ThemePluginCSS")
+    @Styles.Render("~/GlobalThemeCSS")
+    @Styles.Render("~/LoginThemeCSS")
+    @Scripts.Render("~/ThemeJS")
+    @Scripts.Render("~/AppScriptJS")
+    <!-- View specific styles -->
+    @RenderSection("styles", required: false)
+
+    <script type="text/javascript">
+        //This is used to get the application's root path from javascript. It's useful if you're running application in a virtual directory under IIS.
+        var abp = abp || {}; abp.appPath = '@ApplicationPath';
+    </script>
+</head>
+<body class="login">
+  
+</body>
+</html>
